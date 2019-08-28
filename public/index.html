@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>express+mongoose</title>
+</head>
+<body>
+<h2>添加用户</h2>
+<form action="/api/add_user" method="post">
+  用户名: <input type="text" name="name"><br>
+  密  码: <input type="password" name="pwd"><br>
+  年  龄: <input type="text" name="age"><br>
+  性  别: 女<input type="radio" name="sex" value="女">
+        男<input type="radio" name="sex" value="男"><br>
+  <input type="submit" value="添加">
+</form>
+
+<h2>
+  <a href="/api/users">查看用户列表</a>
+</h2>
+</body>
+</html>

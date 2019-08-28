@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>用户列表</title>
+</head>
+<body>
+  <h1>用户列表</h1>
+  <ul>
+    <%
+      users.forEach(user => {
+    %>
+      <li>
+        <%=user._id%>--<%=user.name%>--<%=user.age%>--<%=user.sex%>
+        <button name='<%=user._id%>' onclick="deleteUser('<%=user._id%>')">删除</button>
+      </li>
+    <%
+      })
+    %>
+  </ul>
+
+  <h2>
+    <a href="/">继续添加</a>
+  </h2>
+
+  <script>
+    function deleteUser(id) {
+      if (confirm('确定删除此用户吗?')) {
+        window.location = '/api/delete_user?id=' + id
+      }
+    }
+  </script>
+</body>
+</html>
