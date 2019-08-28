@@ -7,6 +7,7 @@
 */
 const mongoose = require('mongoose')
 const express = require('express')
+const cookieParser = require('cookie-parser')
 const app = express()
 
 // 4. 设置ejs模板相关
@@ -17,9 +18,13 @@ app.set('views', 'views')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(cookieParser()) // 用来解体请求头中的cookie
+
 // 注册路由器中间件
 const router = require('./router')
 app.use('/api', router)
+const cookieRouter = require('./router/cookie')
+app.use('/cookie', cookieRouter)
 
 
 // 1. 连接数据库
